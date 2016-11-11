@@ -1,0 +1,22 @@
+<div class="page-header">
+    <h1><span class="glyphicon glyphicon-pencil small" aria-hidden="true"></span> {{ title }}</h1>
+</div>
+<form class="form-inline">
+    <ul class="list-group">
+        <li class="list-group-item">
+
+            <div class="form-group">
+                <div class="input-group">
+
+                    <input  #taskInput type="text" class="form-control" (keyup.enter)="addTask(taskInput)" placeholder="Amount">
+
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary" (click)="addTask(taskInput, $event)">Добавить</button>
+        </li>
+
+    </ul>
+
+</form>
+
+<todo-list [todos]="todos"></todo-list>

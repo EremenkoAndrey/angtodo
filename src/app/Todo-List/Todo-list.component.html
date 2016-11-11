@@ -1,0 +1,9 @@
+<ul class="list-group" *ngIf="todos.length > 0">
+
+    <li class="list-group-item" *ngFor="let todo of todos">
+
+        <todo-item [todo]="todo"></todo-item>
+
+    </li>
+
+</ul>
