@@ -1,27 +1,21 @@
 import { Component } from '@angular/core';
+import { Task } from './../models/Task';
 
 @Component({
     selector: 'todo-app',
-    templateUrl: 'ToDo.component.html',
-    styleUrls: ['ToDo.component.css']
+    templateUrl: 'ToDo.component.html'
 })
 export class ToDoComponent {
     title: string;
-    todos: string[];
+    todos: Task[];
 
     constructor(){
         this.title = 'It ToDo';
         this.todos = []
     }
 
-    addTask(taskInput: HTMLInputElement, event?: any) {
-        if(event) {
-            event.preventDefault();
-        }
-        var newTask: string = taskInput.value;
-        if(newTask.length === 0) return;
-        this.todos.push(newTask);
-        taskInput.value = '';
+    onAddTask(title: string) {
+        this.todos.push(new Task(title))
     }
 
 }

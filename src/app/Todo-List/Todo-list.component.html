@@ -1,8 +1,8 @@
-<ul class="list-group" *ngIf="todos.length > 0">
+<ul class="list-group" *ngIf="todos.length > 0" >
 
     <li class="list-group-item" *ngFor="let todo of todos">
 
-        <todo-item [todo]="todo"></todo-item>
+        <todo-item [task]="todo" (deletedTask)="onTaskDelete($event)"></todo-item>
 
     </li>
 
