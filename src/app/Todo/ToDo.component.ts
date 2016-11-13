@@ -1,17 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
 import { Task } from './../models/Task';
+import { TodoServise } from './../servises/todo.servise';
 
 @Component({
     selector: 'todo-app',
-    templateUrl: 'ToDo.component.html'
+    templateUrl: 'ToDo.component.html',
+    providers: [TodoServise]
 })
-export class ToDoComponent {
+export class ToDoComponent implements OnInit{
     title: string;
     todos: Task[];
 
-    constructor(){
+    constructor(private todoServise: TodoServise){
         this.title = 'It ToDo';
-        this.todos = []
+        this.todos = [];
+    }
+
+    ngOnInit(){
+        this.todos = this.todoServise.getData;
     }
 
     onAddTask(title: string) {
